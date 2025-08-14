@@ -469,8 +469,117 @@
       "membership": "Silver",
       "status": "Inactive"
     }
-  ]
-  
+  ], 
+   "orders": [
+    {
+      "id": "ORD-1001",
+      "customerName": "John Doe",
+      "customerEmail": "john.doe@example.com",
+      "orderDate": "2025-07-14T10:15:00Z",
+      "deliveryDate": "2025-07-18T15:30:00Z",
+      "status": "Delivered",
+      "paymentStatus": "Paid",
+      "paymentMethod": "Credit Card",
+      "shippingAddress": "123 Main Street, New York, NY, USA",
+      "billingAddress": "123 Main Street, New York, NY, USA",
+      "totalAmount": 89.97,
+      "currency": "USD",
+      "items": [
+        { "productId": 1, "name": "Organic Apple", "quantity": 5, "price": 2.99 },
+        { "productId": 3, "name": "Almond Milk", "quantity": 2, "price": 4.99 },
+        { "productId": 5, "name": "Free-Range Eggs", "quantity": 1, "price": 5.99 }
+      ],
+      "shippingMethod": "Standard Delivery",
+      "trackingNumber": "TRK123456789",
+      "notes": "Leave at the front door."
+    },
+    {
+      "id": "ORD-1002",
+      "customerName": "Jane Smith",
+      "customerEmail": "jane.smith@example.com",
+      "orderDate": "2025-07-15T13:45:00Z",
+      "deliveryDate": "2025-07-20T10:00:00Z",
+      "status": "Shipped",
+      "paymentStatus": "Paid",
+      "paymentMethod": "PayPal",
+      "shippingAddress": "456 Oak Avenue, Los Angeles, CA, USA",
+      "billingAddress": "456 Oak Avenue, Los Angeles, CA, USA",
+      "totalAmount": 42.5,
+      "currency": "USD",
+      "items": [
+        { "productId": 2, "name": "Whole Wheat Bread", "quantity": 3, "price": 3.5 },
+        { "productId": 4, "name": "Organic Carrots", "quantity": 5, "price": 1.99 }
+      ],
+      "shippingMethod": "Express Delivery",
+      "trackingNumber": "TRK987654321",
+      "notes": ""
+    },
+    {
+      "id": "ORD-1003",
+      "customerName": "Michael Brown",
+      "customerEmail": "michael.brown@example.com",
+      "orderDate": "2025-07-16T09:20:00Z",
+      "deliveryDate": "2025-07-19T12:00:00Z",
+      "status": "Processing",
+      "paymentStatus": "Pending",
+      "paymentMethod": "Bank Transfer",
+      "shippingAddress": "789 Pine Street, Chicago, IL, USA",
+      "billingAddress": "789 Pine Street, Chicago, IL, USA",
+      "totalAmount": 120.0,
+      "currency": "USD",
+      "items": [
+        { "productId": 6, "name": "Organic Honey", "quantity": 2, "price": 15.99 },
+        { "productId": 7, "name": "Fresh Strawberries", "quantity": 4, "price": 5.99 },
+        { "productId": 8, "name": "Greek Yogurt", "quantity": 6, "price": 2.99 }
+      ],
+      "shippingMethod": "Standard Delivery",
+      "trackingNumber": "",
+      "notes": "Call before delivery."
+    },
+    {
+      "id": "ORD-1004",
+      "customerName": "Emily Davis",
+      "customerEmail": "emily.davis@example.com",
+      "orderDate": "2025-07-17T14:05:00Z",
+      "deliveryDate": "2025-07-21T09:45:00Z",
+      "status": "Cancelled",
+      "paymentStatus": "Refunded",
+      "paymentMethod": "Credit Card",
+      "shippingAddress": "321 Maple Road, Dallas, TX, USA",
+      "billingAddress": "321 Maple Road, Dallas, TX, USA",
+      "totalAmount": 64.75,
+      "currency": "USD",
+      "items": [
+        { "productId": 9, "name": "Organic Spinach", "quantity": 3, "price": 2.49 },
+        { "productId": 10, "name": "Avocado", "quantity": 5, "price": 1.99 }
+      ],
+      "shippingMethod": "Standard Delivery",
+      "trackingNumber": "",
+      "notes": "Customer requested cancellation."
+    },
+    {
+      "id": "ORD-1005",
+      "customerName": "David Wilson",
+      "customerEmail": "david.wilson@example.com",
+      "orderDate": "2025-07-18T11:50:00Z",
+      "deliveryDate": "2025-07-23T14:20:00Z",
+      "status": "Delivered",
+      "paymentStatus": "Paid",
+      "paymentMethod": "Debit Card",
+      "shippingAddress": "654 Cedar Lane, Miami, FL, USA",
+      "billingAddress": "654 Cedar Lane, Miami, FL, USA",
+      "totalAmount": 210.35,
+      "currency": "USD",
+      "items": [
+        { "productId": 11, "name": "Brown Rice", "quantity": 10, "price": 3.99 },
+        { "productId": 12, "name": "Cashew Nuts", "quantity": 3, "price": 12.99 },
+        { "productId": 13, "name": "Organic Chicken Breast", "quantity": 4, "price": 9.99 }
+      ],
+      "shippingMethod": "Overnight Delivery",
+      "trackingNumber": "TRK564738291",
+      "notes": ""
+    }
+  ] 
 
 
 }
