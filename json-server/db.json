@@ -1,0 +1,476 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Organic Apple",
+      "category": "Fruits",
+      "price": 2.99,
+      "stock": 120,
+      "rating": 4.5,
+      "image": "https://via.placeholder.com/150",
+      "description": "Fresh organic apples from local farms."
+    },
+    {
+      "id": 2,
+      "name": "Whole Wheat Bread",
+      "category": "Bakery",
+      "price": 3.5,
+      "stock": 50,
+      "rating": 4.2,
+      "image": "https://via.placeholder.com/150",
+      "description": "Baked daily with 100% whole wheat flour."
+    },
+    {
+      "id": 3,
+      "name": "Almond Milk",
+      "category": "Beverages",
+      "price": 4.99,
+      "stock": 80,
+      "rating": 4.7,
+      "image": "https://via.placeholder.com/150",
+      "description": "Plant-based almond milk, dairy-free and delicious."
+    },
+    {
+      "id": 4,
+      "name": "Organic Carrots",
+      "category": "Vegetables",
+      "price": 1.99,
+      "stock": 150,
+      "rating": 4.4,
+      "image": "https://via.placeholder.com/150",
+      "description": "Crunchy and sweet organic carrots."
+    },
+    {
+      "id": 5,
+      "name": "Free-Range Eggs",
+      "category": "Dairy",
+      "price": 5.99,
+      "stock": 60,
+      "rating": 4.8,
+      "image": "https://via.placeholder.com/150",
+      "description": "Fresh eggs from free-range chickens."
+    },
+    {
+      "id": 6,
+      "name": "Greek Yogurt",
+      "category": "Dairy",
+      "price": 3.99,
+      "stock": 70,
+      "rating": 4.6,
+      "image": "https://via.placeholder.com/150",
+      "description": "Thick and creamy Greek-style yogurt."
+    },
+    {
+      "id": 7,
+      "name": "Brown Rice",
+      "category": "Grains",
+      "price": 2.5,
+      "stock": 200,
+      "rating": 4.3,
+      "image": "https://via.placeholder.com/150",
+      "description": "Whole grain brown rice, high in fiber."
+    },
+    {
+      "id": 8,
+      "name": "Organic Spinach",
+      "category": "Vegetables",
+      "price": 2.2,
+      "stock": 90,
+      "rating": 4.4,
+      "image": "https://via.placeholder.com/150",
+      "description": "Fresh organic spinach leaves."
+    },
+    {
+      "id": 9,
+      "name": "Chicken Breast",
+      "category": "Meat",
+      "price": 7.99,
+      "stock": 45,
+      "rating": 4.7,
+      "image": "https://via.placeholder.com/150",
+      "description": "Boneless, skinless chicken breasts."
+    },
+    {
+      "id": 10,
+      "name": "Orange Juice",
+      "category": "Beverages",
+      "price": 3.99,
+      "stock": 65,
+      "rating": 4.5,
+      "image": "https://via.placeholder.com/150",
+      "description": "Freshly squeezed orange juice."
+    },
+    {
+      "id": 11,
+      "name": "Tomatoes",
+      "category": "Vegetables",
+      "price": 1.5,
+      "stock": 130,
+      "rating": 4.3,
+      "image": "https://via.placeholder.com/150",
+      "description": "Juicy red tomatoes, perfect for salads."
+    },
+    {
+      "id": 12,
+      "name": "Cheddar Cheese",
+      "category": "Dairy",
+      "price": 4.5,
+      "stock": 55,
+      "rating": 4.6,
+      "image": "https://via.placeholder.com/150",
+      "description": "Sharp aged cheddar cheese."
+    },
+    {
+      "id": 13,
+      "name": "Bananas",
+      "category": "Fruits",
+      "price": 1.2,
+      "stock": 180,
+      "rating": 4.4,
+      "image": "https://via.placeholder.com/150",
+      "description": "Sweet ripe bananas."
+    },
+    {
+      "id": 14,
+      "name": "Oatmeal",
+      "category": "Grains",
+      "price": 3.2,
+      "stock": 110,
+      "rating": 4.5,
+      "image": "https://via.placeholder.com/150",
+      "description": "Whole grain rolled oats."
+    },
+    {
+      "id": 15,
+      "name": "Strawberries",
+      "category": "Fruits",
+      "price": 5.5,
+      "stock": 40,
+      "rating": 4.7,
+      "image": "https://via.placeholder.com/150",
+      "description": "Fresh sweet strawberries."
+    },
+    {
+      "id": 16,
+      "name": "Ground Beef",
+      "category": "Meat",
+      "price": 8.5,
+      "stock": 35,
+      "rating": 4.6,
+      "image": "https://via.placeholder.com/150",
+      "description": "Grass-fed ground beef."
+    },
+    {
+      "id": 17,
+      "name": "Broccoli",
+      "category": "Vegetables",
+      "price": 2.3,
+      "stock": 95,
+      "rating": 4.4,
+      "image": "https://via.placeholder.com/150",
+      "description": "Fresh green broccoli florets."
+    },
+    {
+      "id": 18,
+      "name": "Coconut Water",
+      "category": "Beverages",
+      "price": 2.8,
+      "stock": 60,
+      "rating": 4.5,
+      "image": "https://via.placeholder.com/150",
+      "description": "Refreshing natural coconut water."
+    },
+    {
+      "id": 19,
+      "name": "Avocado",
+      "category": "Fruits",
+      "price": 2.5,
+      "stock": 75,
+      "rating": 4.6,
+      "image": "https://via.placeholder.com/150",
+      "description": "Creamy ripe avocados."
+    },
+    {
+      "id": 20,
+      "name": "Pasta",
+      "category": "Grains",
+      "price": 1.8,
+      "stock": 140,
+      "rating": 4.3,
+      "image": "https://via.placeholder.com/150",
+      "description": "Durum wheat pasta, perfect for Italian dishes."
+    },
+    {
+      "id": "f860"
+    },
+    {
+      "id": "fee9",
+      "name": "Oriamo Earbud",
+      "price": "25000",
+      "category": "Electronics",
+      "stock": "200",
+      "description": "Oriamo"
+    },
+    {
+      "id": "9a3d",
+      "name": "Oriamo Earbud",
+      "price": "25000",
+      "category": "Electronics",
+      "stock": "200",
+      "description": "Oriamo"
+    },
+    {
+      "id": "f984",
+      "name": "Oriamo Earbud",
+      "price": "20000",
+      "category": "Electronics",
+      "stock": "200",
+      "description": "200pcs"
+    },
+    {
+      "id": "5f06",
+      "name": "Oriamo Earbud",
+      "price": "20000",
+      "category": "Electronics",
+      "stock": "2000",
+      "description": "Hello"
+    },
+    {
+      "id": "6a93",
+      "name": "Oriamo Earbud",
+      "price": "2000",
+      "category": "Electronics",
+      "stock": "200",
+      "description": "New stock"
+    },
+    {
+      "id": "4e2e",
+      "name": "Oriamo Earbud",
+      "price": "2000",
+      "category": "Electronics",
+      "stock": "2000",
+      "description": "NEw stock"
+    },
+    {
+      "id": "b8f3",
+      "name": "Dell XPS 15 laptop",
+      "price": "150000",
+      "category": "Electronics",
+      "stock": "20",
+      "description": "Dell XPS 15"
+    },
+    {
+      "id": "b548",
+      "name": "Dell XPS 13",
+      "price": "450000",
+      "category": "Electronics",
+      "stock": "20",
+      "description": "NEw arrival"
+    }
+  ],
+
+  "customers": [
+    {
+      "id": "CUS-1001",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "phone": "+1 202-555-0136",
+      "address": "123 Elm Street",
+      "city": "New York",
+      "country": "USA",
+      "profilePic": "https://randomuser.me/api/portraits/men/1.jpg",
+      "totalOrders": 12,
+      "totalSpent": 1290.5,
+      "signupDate": "2023-02-15",
+      "lastOrderDate": "2025-07-22",
+      "recentOrders": [
+        { "name": "Wireless Mouse", "quantity": 1, "price": 25.99 },
+        { "name": "Laptop Stand", "quantity": 1, "price": 45.0 },
+        { "name": "USB-C Cable", "quantity": 2, "price": 9.99 }
+      ],
+      "membership": "Gold",
+      "status": "Active"
+    },
+    {
+      "id": "CUS-1002",
+      "name": "Emily Johnson",
+      "email": "emily.j@example.com",
+      "phone": "+1 415-555-0193",
+      "address": "456 Maple Avenue",
+      "city": "San Francisco",
+      "country": "USA",
+      "profilePic": "https://randomuser.me/api/portraits/women/2.jpg",
+      "totalOrders": 8,
+      "totalSpent": 780.75,
+      "signupDate": "2022-11-03",
+      "lastOrderDate": "2025-07-18",
+      "recentOrders": [
+        { "name": "Yoga Mat", "quantity": 1, "price": 29.99 },
+        { "name": "Resistance Bands", "quantity": 3, "price": 15.5 }
+      ],
+      "membership": "Silver",
+      "status": "Active"
+    },
+    {
+      "id": "CUS-1003",
+      "name": "Michael Smith",
+      "email": "michael.smith@example.com",
+      "phone": "+44 20 7946 0958",
+      "address": "78 Baker Street",
+      "city": "London",
+      "country": "UK",
+      "profilePic": "https://randomuser.me/api/portraits/men/3.jpg",
+      "totalOrders": 5,
+      "totalSpent": 540.0,
+      "signupDate": "2023-07-20",
+      "lastOrderDate": "2025-07-10",
+      "recentOrders": [
+        { "name": "Bluetooth Speaker", "quantity": 1, "price": 65.0 },
+        { "name": "Headphones", "quantity": 1, "price": 45.5 }
+      ],
+      "membership": "Bronze",
+      "status": "Inactive"
+    },
+    {
+      "id": "CUS-1004",
+      "name": "Sophia Brown",
+      "email": "sophia.brown@example.com",
+      "phone": "+61 2 9374 4000",
+      "address": "89 George Street",
+      "city": "Sydney",
+      "country": "Australia",
+      "profilePic": "https://randomuser.me/api/portraits/women/4.jpg",
+      "totalOrders": 20,
+      "totalSpent": 2450.0,
+      "signupDate": "2021-09-12",
+      "lastOrderDate": "2025-08-05",
+      "recentOrders": [
+        { "name": "Running Shoes", "quantity": 1, "price": 89.99 },
+        { "name": "Fitness Tracker", "quantity": 1, "price": 120.0 }
+      ],
+      "membership": "Platinum",
+      "status": "Active"
+    },
+    {
+      "id": "CUS-1005",
+      "name": "David Lee",
+      "email": "david.lee@example.com",
+      "phone": "+65 6123 4567",
+      "address": "12 Orchard Road",
+      "city": "Singapore",
+      "country": "Singapore",
+      "profilePic": "https://randomuser.me/api/portraits/men/5.jpg",
+      "totalOrders": 15,
+      "totalSpent": 1650.25,
+      "signupDate": "2022-05-30",
+      "lastOrderDate": "2025-08-01",
+      "recentOrders": [
+        { "name": "Mechanical Keyboard", "quantity": 1, "price": 110.0 },
+        { "name": "Monitor Stand", "quantity": 1, "price": 49.5 }
+      ],
+      "membership": "Gold",
+      "status": "Active"
+    },
+    {
+      "id": "CUS-1006",
+      "name": "Olivia Taylor",
+      "email": "olivia.taylor@example.com",
+      "phone": "+27 21 555 7890",
+      "address": "55 Long Street",
+      "city": "Cape Town",
+      "country": "South Africa",
+      "profilePic": "https://randomuser.me/api/portraits/women/6.jpg",
+      "totalOrders": 9,
+      "totalSpent": 895.0,
+      "signupDate": "2023-01-14",
+      "lastOrderDate": "2025-07-30",
+      "recentOrders": [
+        { "name": "Camera Tripod", "quantity": 1, "price": 35.0 },
+        { "name": "Memory Card", "quantity": 2, "price": 15.99 }
+      ],
+      "membership": "Silver",
+      "status": "Active"
+    },
+    {
+      "id": "CUS-1007",
+      "name": "James Wilson",
+      "email": "james.wilson@example.com",
+      "phone": "+1 303-555-0188",
+      "address": "99 Pine Street",
+      "city": "Denver",
+      "country": "USA",
+      "profilePic": "https://randomuser.me/api/portraits/men/7.jpg",
+      "totalOrders": 6,
+      "totalSpent": 650.4,
+      "signupDate": "2022-12-05",
+      "lastOrderDate": "2025-07-25",
+      "recentOrders": [
+        { "name": "Smartwatch", "quantity": 1, "price": 199.99 }
+      ],
+      "membership": "Bronze",
+      "status": "Active"
+    },
+    {
+      "id": "CUS-1008",
+      "name": "Ava Martinez",
+      "email": "ava.martinez@example.com",
+      "phone": "+34 91 123 4567",
+      "address": "33 Calle Mayor",
+      "city": "Madrid",
+      "country": "Spain",
+      "profilePic": "https://randomuser.me/api/portraits/women/8.jpg",
+      "totalOrders": 14,
+      "totalSpent": 1750.99,
+      "signupDate": "2021-06-10",
+      "lastOrderDate": "2025-08-07",
+      "recentOrders": [
+        { "name": "Espresso Machine", "quantity": 1, "price": 299.99 },
+        { "name": "Coffee Beans", "quantity": 2, "price": 12.5 }
+      ],
+      "membership": "Gold",
+      "status": "Active"
+    },
+    {
+      "id": "CUS-1009",
+      "name": "William Anderson",
+      "email": "william.anderson@example.com",
+      "phone": "+49 30 123456",
+      "address": "101 Unter den Linden",
+      "city": "Berlin",
+      "country": "Germany",
+      "profilePic": "https://randomuser.me/api/portraits/men/9.jpg",
+      "totalOrders": 18,
+      "totalSpent": 2100.0,
+      "signupDate": "2020-10-25",
+      "lastOrderDate": "2025-07-29",
+      "recentOrders": [
+        { "name": "Gaming Chair", "quantity": 1, "price": 250.0 }
+      ],
+      "membership": "Platinum",
+      "status": "Active"
+    },
+    {
+      "id": "CUS-1010",
+      "name": "Isabella Garcia",
+      "email": "isabella.garcia@example.com",
+      "phone": "+52 55 1234 5678",
+      "address": "45 Paseo de la Reforma",
+      "city": "Mexico City",
+      "country": "Mexico",
+      "profilePic": "https://randomuser.me/api/portraits/women/10.jpg",
+      "totalOrders": 7,
+      "totalSpent": 720.5,
+      "signupDate": "2022-08-14",
+      "lastOrderDate": "2025-07-21",
+      "recentOrders": [
+        { "name": "Air Purifier", "quantity": 1, "price": 150.0 },
+        { "name": "Filter Cartridge", "quantity": 2, "price": 25.0 }
+      ],
+      "membership": "Silver",
+      "status": "Inactive"
+    }
+  ]
+  
+
+
+}
