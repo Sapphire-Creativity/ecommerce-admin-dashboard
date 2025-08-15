@@ -1,5 +1,4 @@
-import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Drawer, Box, Typography, Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -13,6 +12,8 @@ import Chip from "@mui/material/Chip";
 import { ordersData } from "../data/orderdata";
 import { CgProfile } from "react-icons/cg";
 import { Divider } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
+import AddOrderDrawer from "../components/AddOrderDrawer";
 import {
   MdEmail,
   MdDateRange,
@@ -30,6 +31,10 @@ import {
   MdOutlineHome,
 } from "react-icons/md";
 import { FaMoneyBillWave, FaHashtag, FaStickyNote } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchOrders } from "../redux/slice/ordersSlice";
+import React from "react";
+import { IoAdd } from "react-icons/io5";
 
 //
 const columns = [
@@ -43,16 +48,29 @@ const columns = [
 ];
 
 export default function Orders() {
+  const dispatch = useDispatch();
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [addOrderOpen, setAddOrderOpen] = useState(false);
+
+  //
+
+  const { orders, loading, fetchError } = useSelector((state) => state.orders);
+  useEffect(() => {
+    dispatch(fetchOrders());
+  }, [dispatch]);
 
   const handleRowClick = (order) => {
     setSelectedOrder(order);
     setDrawerOpen(true);
   };
 
+  const handleAddDrawerOpen = () => {
+    setAddOrderOpen(true);
+  };
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -115,9 +133,31 @@ export default function Orders() {
     );
   };
 
+  //
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <CircularProgress sx={{ color: "#FF7A00" }} />
+      </div>
+    );
+  }
+
+  if (fetchError) {
+    return <p>Error loading products: {fetchError}</p>;
+  }
+
   return (
     <>
-      <h3 className="text-primary font-normal text-4xl my-8">Orders</h3>
+      <div className="flex justify-between items-center">
+        <h3 className="text-primary font-normal text-4xl my-8">Orders</h3>
+        <IoAdd
+          onClick={handleAddDrawerOpen}
+          className="h-10 w-10 text-xl p-2 text-primary bg-gray-100 rounded-lg 
+             transition-all duration-300 ease-in-out cursor-pointer
+             hover:bg-primary hover:text-white hover:shadow-lg hover:scale-110"
+        />
+      </div>
+
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
         <TableContainer sx={{ maxHeight: 440 }}>
           <Table stickyHeader aria-label="orders table">
@@ -137,7 +177,7 @@ export default function Orders() {
 
             {/*  */}
             <TableBody>
-              {ordersData
+              {orders
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((order) => (
                   <TableRow
@@ -181,16 +221,6 @@ export default function Orders() {
         >
           {selectedOrder && (
             <Box>
-              {/* Header */}
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="text-primary text-lg font-light">
-                  Order Details
-                </h3>
-                <span className="text-xs text-gray-500 font-medium">
-                  {selectedOrder.id}
-                </span>
-              </div>
-
               <Divider sx={{ mb: 2 }} />
 
               {/* Customer Info */}
@@ -329,10 +359,17 @@ export default function Orders() {
           )}
         </Drawer>
 
+        {/*  */}
+
+        <AddOrderDrawer
+          open={addOrderOpen}
+          onClose={() => setAddOrderOpen(false)}
+        />
+
         <TablePagination
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
-          count={ordersData.length}
+          count={orders.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}

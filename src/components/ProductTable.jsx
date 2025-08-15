@@ -1,43 +1,60 @@
-// src/pages/Products.jsx
 import React, { useEffect, useState } from "react";
 import { MdDelete, MdModeEdit } from "react-icons/md";
- 
-import { GrFormNext } from "react-icons/gr";
-import { GrFormPrevious } from "react-icons/gr";
+import { GrFormNext, GrFormPrevious } from "react-icons/gr";
+import { useDispatch } from "react-redux";
+import { deleteProducts } from "../redux/slice/productSlice";
+import { toast, ToastContainer } from "react-toastify";
+import ConfirmModal from "../components/ConfirmModal";
 
-export default function Products({ items }) {
+export default function Products({ items, handleEdit }) {
   const [products, setProducts] = useState(items);
   const [currentPage, setCurrentPage] = useState(1);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
   const rowsPerPage = 8;
+  const dispatch = useDispatch();
 
-  //
   useEffect(() => {
     setProducts(items);
   }, [items]);
 
-  const handleEdit = (id) => {
-    alert(`Edit product with ID: ${id}`);
+  // Open custom modal
+  const confirmDelete = (id) => {
+    setSelectedId(id);
+    setModalVisible(true);
   };
 
-  const handleDelete = (id) => {
-    if (window.confirm("Are you sure you want to delete this product?")) {
-      setProducts(products.filter((product) => product.id !== id));
+  // Called when modal confirm is clicked
+  const handleDelete = async () => {
+    if (!selectedId) return;
+    try {
+      await dispatch(deleteProducts(selectedId)).unwrap();
+      toast.success("Product removed successfully!");
+      setModalVisible(false);
+      setSelectedId(null);
+    } catch (err) {
+      toast.error("Failed to delete product");
     }
   };
 
-  // Pagination logic
   const totalPages = Math.ceil(products.length / rowsPerPage);
   const startIndex = (currentPage - 1) * rowsPerPage;
   const currentProducts = products.slice(startIndex, startIndex + rowsPerPage);
 
   const goToPage = (page) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-    }
+    if (page >= 1 && page <= totalPages) setCurrentPage(page);
   };
 
   return (
     <div className="">
+      <ToastContainer position="top-right" autoClose={3000} />
+      <ConfirmModal
+        visible={modalVisible}
+        onConfirm={handleDelete}
+        onCancel={() => setModalVisible(false)}
+        message="Are you sure you want to delete this product?"
+      />
+
       <div className="overflow-x-auto bg-white rounded-lg shadow-xl">
         <table className="min-w-full text-sm text-left border border-gray-100">
           <thead className="uppercase text-xs bg-gray-50">
@@ -77,13 +94,13 @@ export default function Products({ items }) {
                 <td className="px-4 py-3 border-b">{product.stock}</td>
                 <td className="px-4 py-3 border-b text-center space-x-2">
                   <button
-                    onClick={() => handleEdit(product.id)}
+                    onClick={() => handleEdit(product)}
                     className="p-2 text-gray-600 hover:bg-blue-100 rounded transition duration-200"
                   >
                     <MdModeEdit size={18} />
                   </button>
                   <button
-                    onClick={() => handleDelete(product.id)}
+                    onClick={() => confirmDelete(product.id)}
                     className="p-2 text-red-500 hover:bg-red-100 rounded transition duration-200"
                   >
                     <MdDelete size={18} />

@@ -7,8 +7,11 @@ import { fetchProducts, addNewProducts } from "../redux/slice/productSlice";
 import CircularProgress from "@mui/material/CircularProgress";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import EditProductDrawer from "../components/EditProductDrawer";
 
 const Products = () => {
+  const [editDrawerOpen, setEditDrawerOpen] = useState(false);
+  const [editingProduct, setEditingProduct] = useState(null);
   const dispatch = useDispatch();
 
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -25,23 +28,15 @@ const Products = () => {
     (state) => state.products
   );
 
-  // Handle product submission
-
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <CircularProgress sx={{ color: "#FF7A00" }} />
-      </div>
-    );
-  }
-
-  if (fetchError) {
-    return <p>Error loading products: {fetchError}</p>;
-  }
+  //
+  const handleEdit = (product) => {
+    setEditingProduct(product);
+    setEditDrawerOpen(true);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -64,7 +59,6 @@ const Products = () => {
         pauseOnHover: false,
         draggable: false,
         progress: undefined,
-        theme: "colored",
       });
       setDrawerOpen(false);
       setFormData({
@@ -78,7 +72,6 @@ const Products = () => {
       toast.error("❌ Failed to add product", {
         position: "top-right",
         autoClose: 2500,
-        theme: "colored",
       });
     }
   };
@@ -96,8 +89,15 @@ const Products = () => {
         />
       </div>
 
-      {/* Product Table */}
-      <ProductTable items={items} />
+      {loading ? (
+        <div className="flex justify-center items-center h-screen">
+          <CircularProgress sx={{ color: "#FF7A00" }} />
+        </div>
+      ) : fetchError ? (
+        <p>Error loading products: {fetchError}</p>
+      ) : (
+        <ProductTable items={items} handleEdit={handleEdit} />
+      )}
 
       {/* Drawer for Add Product */}
       <Drawer
@@ -211,6 +211,13 @@ const Products = () => {
           </div>
         </Box>
       </Drawer>
+
+      {/* Drawer for Edit Product */}
+      <EditProductDrawer
+        open={editDrawerOpen}
+        onClose={() => setEditDrawerOpen(false)}
+        product={editingProduct}
+      />
     </div>
   );
 };
