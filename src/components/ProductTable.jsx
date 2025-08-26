@@ -18,6 +18,17 @@ export default function Products({ items, handleEdit }) {
     setProducts(items);
   }, [items]);
 
+
+//   try {
+//     await dispatch(addNewOrder(payload)).unwrap();
+//     toast.success("Order created successfully!");
+//     onClose();
+//   } catch (err) {
+//     console.error(err);
+//     toast.error("Failed to create order");
+//   }
+// };
+
   // Open custom modal
   const confirmDelete = (id) => {
     setSelectedId(id);

@@ -1,58 +1,75 @@
 import { FiSearch, FiBell } from "react-icons/fi";
-import { HiMiniSquares2X2 } from "react-icons/hi2";
 import { IoMenu } from "react-icons/io5";
-
-import Box from "@mui/material/Box";
 import Badge from "@mui/material/Badge";
-import MailIcon from "@mui/icons-material/Mail";
 import CurrentDateTime from "../components/DateTime";
 
 const Topbar = ({ toggleSideBar, isActive }) => {
   return (
-    <header className="flex items-center justify-between bg-white shadow px-6 py-2">
-      {/*  */}
-      <div className="flex items-center ">
-        <IoMenu
-          className="text-2xl mr-5"
+    <header className="flex items-center justify-between bg-white shadow px-2 py-4 md:px-6">
+      {/* Left Section - Menu & DateTime */}
+      <div className="flex items-center space-x-2 md:space-x-4">
+        <button
           onClick={toggleSideBar}
-          isActive={isActive}
-        />
+          className="p-1 rounded-md hover:bg-gray-100 transition-colors"
+          aria-label="Toggle sidebar"
+        >
+          <IoMenu className="text-2xl text-gray-600" />
+        </button>
 
-        <CurrentDateTime />
+        <div className="hidden sm:block">
+          <CurrentDateTime className="text-sm md:text-base" />
+        </div>
       </div>
 
-      {/* Search */}
-      <div className="flex items-center bg-white rounded-full px-3 py-2 w-72">
-        <FiSearch className="text-gray-500 pr-2 text-2xl" />
+      {/* Middle Section - Search (hidden on small screens) */}
+      <div className="hidden md:flex items-center bg-gray-50 rounded-full px-3 py-1.5 w-72 border border-gray-200 focus-within:border-primary transition-colors">
+        <FiSearch className="text-gray-500 mr-2 text-xl" />
         <input
           type="text"
           placeholder="Search..."
-          className="bg-transparent border-none rounded-full outline-none p-2 text-sm w-full"
+          className="bg-transparent border-none outline-none w-full text-sm placeholder-gray-400"
         />
       </div>
 
-      {/* Icons */}
-      <div className="flex items-center gap-4">
-        <Box sx={{ color: "action.active" }}>
+      {/* Right Section - Icons & Profile */}
+      <div className="flex items-center space-x-3 md:space-x-4">
+        {/* Mobile Search Button (visible only on small screens) */}
+        <button className="md:hidden p-1.5 rounded-full hover:bg-gray-100">
+          <FiSearch className="text-xl text-gray-600" />
+        </button>
+
+        {/* Notification */}
+        <button className="relative p-1.5 rounded-full hover:bg-gray-100">
           <Badge
-            color="secondary"
+            color="error"
             variant="dot"
+            overlap="circular"
             sx={{
-              "& .MuiBadge-dot": {
+              "& .MuiBadge-badge": {
+                right: 4,
+                top: 4,
                 backgroundColor: "#ff5722",
               },
             }}
           >
-            <FiBell className="text-gray-500 text-2xl cursor-pointer" />
+            <FiBell className="text-xl text-gray-600" />
           </Badge>
-        </Box>
-        <img
-          src="https://i.pravatar.cc/40"
-          alt="User Avatar"
-          className="w-10 h-10 rounded-full border-2 border-primary"
-        />
+        </button>
+
+        {/* Profile */}
+        <div className="flex items-center space-x-2">
+          <img
+            src="https://i.pravatar.cc/40"
+            alt="User Avatar"
+            className="w-8 h-8 md:w-9 md:h-9 rounded-full border-2 border-primary object-cover"
+          />
+          <span className="hidden lg:inline text-sm font-medium text-gray-700">
+            John Doe
+          </span>
+        </div>
       </div>
     </header>
   );
 };
+
 export default Topbar;

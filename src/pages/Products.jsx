@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProductTable from "../components/ProductTable";
 import { IoAdd } from "react-icons/io5";
-import { Drawer, Box, Button } from "@mui/material";
+import { Drawer, Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, addNewProducts } from "../redux/slice/productSlice";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -23,7 +23,6 @@ const Products = () => {
     description: "",
   });
 
-  //
   const { items, loading, fetchError, postError } = useSelector(
     (state) => state.products
   );
@@ -32,7 +31,6 @@ const Products = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  //
   const handleEdit = (product) => {
     setEditingProduct(product);
     setEditDrawerOpen(true);
@@ -45,8 +43,6 @@ const Products = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log("New Product:", formData);
 
     try {
       await dispatch(addNewProducts(formData)).unwrap();
@@ -77,134 +73,136 @@ const Products = () => {
   };
 
   return (
-    <div>
-      {/* Header */}
-      <div className="flex justify-between items-center">
-        <h3 className="text-primary font-normal text-4xl my-8">Products</h3>
-        <IoAdd
-          onClick={() => setDrawerOpen(true)}
-          className="h-10 w-10 text-xl p-2 text-primary bg-gray-100 rounded-lg 
+    <div className="h-full flex flex-col">
+      {/* Fixed Header */}
+      <div className="sticky top-0 z-10 bg-white pb-2">
+        <div className="flex justify-between items-center">
+          <h3 className="text-primary font-normal text-4xl my-8">Products</h3>
+
+          <IoAdd
+            onClick={() => setDrawerOpen(true)}
+            className="h-10 w-10 text-xl p-2 text-primary bg-gray-100 rounded-lg 
              transition-all duration-300 ease-in-out cursor-pointer
              hover:bg-primary hover:text-white hover:shadow-lg hover:scale-110"
-        />
+          />
+        </div>
       </div>
 
-      {loading ? (
-        <div className="flex justify-center items-center h-screen">
-          <CircularProgress sx={{ color: "#FF7A00" }} />
-        </div>
-      ) : fetchError ? (
-        <p>Error loading products: {fetchError}</p>
-      ) : (
-        <ProductTable items={items} handleEdit={handleEdit} />
-      )}
+      {/* Scrollable Content */}
+      <div className="flex-1 overflow-auto pb-4">
+        {loading ? (
+          <div className="flex justify-center items-center h-full">
+            <CircularProgress sx={{ color: "#FF7A00" }} size={60} />
+          </div>
+        ) : fetchError ? (
+          <div className="bg-red-50 border-l-4 border-red-500 p-4">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <svg
+                  className="h-5 w-5 text-red-500"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div className="ml-3">
+                <p className="text-sm text-red-700">
+                  Error loading products: {fetchError}
+                </p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <ProductTable items={items} handleEdit={handleEdit} />
+        )}
+      </div>
 
-      {/* Drawer for Add Product */}
+      {/* Add Product Drawer */}
       <Drawer
         anchor="right"
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         sx={{
           "& .MuiDrawer-paper": {
-            width: 370,
-            padding: 2,
+            width: { xs: "90%", sm: 400 },
+            padding: 3,
             backgroundColor: "#fafafa",
           },
         }}
       >
-        <Box component="form" onSubmit={handleSubmit}>
-          {/* Drawer Title */}
-          <h6 className="text-primary text-lg font-medium mb-6">
+        <Box component="form" onSubmit={handleSubmit} className="space-y-4">
+          <h6 className="text-primary text-xl font-semibold mb-4">
             Add New Product
           </h6>
 
-          {/* Product Name */}
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-1 text-gray-700">
-              Product Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full border rounded-lg px-3 py-3 focus:outline-none focus:ring-1 focus:ring-primary"
-            />
-          </div>
+          {[
+            { label: "Product Name", name: "name", type: "text" },
+            { label: "Price", name: "price", type: "number" },
+            {
+              label: "Category",
+              name: "category",
+              type: "select",
+              options: ["Electronics", "Clothing", "Food", "Home", "Beauty"],
+            },
+            { label: "Stock Quantity", name: "stock", type: "number" },
+            { label: "Description", name: "description", type: "textarea" },
+          ].map((field) => (
+            <div key={field.name}>
+              <label className="block text-sm font-medium mb-1 text-gray-700">
+                {field.label}
+              </label>
+              {field.type === "select" ? (
+                <select
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                >
+                  <option value="">Select {field.label}</option>
+                  {field.options.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              ) : field.type === "textarea" ? (
+                <textarea
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleChange}
+                  rows={3}
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                />
+              ) : (
+                <input
+                  type={field.type}
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                />
+              )}
+            </div>
+          ))}
 
-          {/* Price */}
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-1 text-gray-700">
-              Price
-            </label>
-            <input
-              type="number"
-              name="price"
-              value={formData.price}
-              onChange={handleChange}
-              required
-              className="w-full border rounded-lg px-3 py-3 focus:outline-none focus:ring-1 focus:ring-primary"
-            />
-          </div>
-
-          {/* Category */}
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-1 text-gray-700">
-              Category
-            </label>
-            <select
-              name="category"
-              value={formData.category}
-              onChange={handleChange}
-              required
-              className="w-full border rounded-lg px-3 py-3 bg-white focus:outline-none focus:ring-1 focus:ring-primary"
-            >
-              <option value="">Select Category</option>
-              <option value="Electronics">Electronics</option>
-              <option value="Clothing">Clothing</option>
-              <option value="Food">Food</option>
-            </select>
-          </div>
-
-          {/* Stock */}
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-1 text-gray-700">
-              Stock Quantity
-            </label>
-            <input
-              type="number"
-              name="stock"
-              value={formData.stock}
-              onChange={handleChange}
-              required
-              className="w-full border rounded-lg px-3 py-3 focus:outline-none focus:ring-1 focus:ring-primary"
-            />
-          </div>
-
-          {/* Description */}
-          <div className="mb-6">
-            <label className="block text-sm font-medium mb-1 text-gray-700">
-              Description
-            </label>
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              rows="3"
-              className="w-full border rounded-lg px-3 py-3 focus:outline-none focus:ring-1 focus:ring-primary"
-            ></textarea>
-          </div>
-
-          {/* Buttons */}
-          <div className="flex gap-2">
-            <button className="px-5 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark shadow transition text-xs md:text-sm">
-              Save
-            </button>
-
+          <div className="flex gap-3 pt-2">
             <button
+              type="submit"
+              className="flex-1 px-4 py-2.5 bg-primary text-white rounded-lg hover:bg-primary-dark shadow transition font-medium"
+            >
+              Save Product
+            </button>
+            <button
+              type="button"
               onClick={() => setDrawerOpen(false)}
-              className="px-5 py-3 bg-gray-400 text-white rounded-lg text-xs md:text-sm hover:bg-gray-500 shadow transition"
+              className="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-medium"
             >
               Cancel
             </button>
@@ -212,7 +210,7 @@ const Products = () => {
         </Box>
       </Drawer>
 
-      {/* Drawer for Edit Product */}
+      {/* Edit Product Drawer */}
       <EditProductDrawer
         open={editDrawerOpen}
         onClose={() => setEditDrawerOpen(false)}

@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
- 
 
 /* === Import Fonts === */
- 
+
 /* === Base Styles === */
 /* html {
   scroll-behavior: smooth;
@@ -45,19 +44,18 @@ body {
   @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition;
 } */
 
-
 @theme {
   /* === Fonts === */
-  --font-sans:  "Plus Jakarta Sans", sans-serif;
-    --font-heading:  "Merriweather Sans", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-heading: "Merriweather Sans", sans-serif;
 
   /* === Brand Colors === */
-  --bg-color: #FAF9F6;
-  --color-primary: #FF7A00;        /* Vibrant Orange */
-  --color-primary-dark: #e65e00;  /* Darker Orange for hover */
-  --color-secondary: #1e293b;     /* Dark Navy */
-  --color-accent: #facc15;        /* Bright Yellow */
-  --color-muted: #6b7280;         /* Muted Gray Text */
+  --bg-color: #faf9f6;
+  --color-primary: #ff7a00; /* Vibrant Orange */
+  --color-primary-dark: #e65e00; /* Darker Orange for hover */
+  --color-secondary: #1e293b; /* Dark Navy */
+  --color-accent: #facc15; /* Bright Yellow */
+  --color-muted: #6b7280; /* Muted Gray Text */
 
   /* === Background Shades === */
   --color-light-orange-100: #fff4e6;
@@ -144,7 +142,47 @@ textarea {
   @apply px-3 py-1 rounded-full text-sm font-medium;
 }
 
-.box-shadow{
-    box-shadow: 4px 0 50px rgba(253, 126, 0, 0.115);
+.box-shadow {
+  box-shadow: 4px 0 50px rgba(253, 126, 0, 0.115);
+}
 
+.btn {
+  padding: 0.9rem;
+  font-size: .9rem;
+  font-weight: 400;
+  color: #fff;
+  background: #ff7a00;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.35s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.35s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: #e65e00;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

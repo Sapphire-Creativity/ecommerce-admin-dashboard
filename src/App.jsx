@@ -9,12 +9,14 @@ import DashboardLayout from "./layouts/DashboardLayout";
 import NotFound from "./pages/NotFound";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AuthPage from "./pages/AuthPage";
 
 const App = () => {
   return (
     <>
       <ToastContainer position="top-right" autoClose={3000} theme="colored" />
       <Routes>
+        <Route path="/auth-page" element={<AuthPage />} />
         <Route path="/" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="products" element={<Products />} />

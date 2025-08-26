@@ -19,9 +19,9 @@ const Sidebar = ({ isCollapsed }) => {
   ];
 
   return (
-    <aside className="h-full p-5 flex flex-col justify-between box-shadow">
+    <aside className="h-full p-5 flex flex-col justify-between overflow-hidden">
       {/* Top: Logo + Navigation */}
-      <div>
+      <div className="overflow-y-auto flex-1">
         {/* Logo */}
         <div
           className={`flex items-center ${
@@ -67,7 +67,7 @@ const Sidebar = ({ isCollapsed }) => {
       </div>
 
       {/* Bottom: Profile + Logout */}
-      <div className="flex flex-col gap-4 border-t pt-4">
+      <div className="flex flex-col gap-4 border-t pt-4 flex-shrink-0">
         {/* Profile Preview */}
         <div
           className={`flex items-center ${
@@ -82,7 +82,6 @@ const Sidebar = ({ isCollapsed }) => {
           {!isCollapsed && (
             <div>
               <h4 className="text-sm font-semibold">John Doe</h4>
-
               <p className="text-xs text-gray-500">
                 sapphirecreativity@gmail.com
               </p>
