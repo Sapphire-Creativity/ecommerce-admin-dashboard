@@ -63,7 +63,11 @@ const formatDate = (d) => {
   const dt = new Date(d);
   return Number.isNaN(dt.getTime())
     ? "—"
-    : dt.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+    : dt.toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      });
 };
 
 export default function Customers() {
@@ -75,9 +79,11 @@ export default function Customers() {
   const [searchTerm, setSearchTerm] = useState("");
 
   // Grab customers from Redux; fall back to [] to avoid crashes while loading
-  const { customersData: customers = [], loading, fetchError } = useSelector(
-    (state) => state.customers || {}
-  );
+  const {
+    customersData: customers = [],
+    loading,
+    fetchError,
+  } = useSelector((state) => state.customers || {});
 
   // Guard against React 18 StrictMode double-invoke (dev)
   const fetchedRef = useRef(false);
@@ -113,7 +119,10 @@ export default function Customers() {
 
   // Keep page within bounds when search results shrink
   useEffect(() => {
-    const maxPage = Math.max(0, Math.ceil(filteredCustomers.length / rowsPerPage) - 1);
+    const maxPage = Math.max(
+      0,
+      Math.ceil(filteredCustomers.length / rowsPerPage) - 1
+    );
     if (page > maxPage) setPage(0);
   }, [filteredCustomers.length, rowsPerPage, page]);
 
@@ -146,7 +155,7 @@ export default function Customers() {
     <>
       {/* Search Input */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between my-8 gap-3">
-        <h3 className="text-primary font-normal text-2xl sm:text-4xl mb-2 sm:mb-0">
+        <h3 className="text-primary font-normal text-2xl md:text-4xl my-8">
           Customers
         </h3>
         <input
@@ -160,14 +169,22 @@ export default function Customers() {
       </div>
 
       {loading ? (
-        <div className="flex justify-center items-center min-h-[200px]" aria-busy="true" aria-live="polite">
-          <CircularProgress sx={{ color: "#FF7A00" }} size={60} />
+        <div
+          className="flex justify-center items-center min-h-[200px]"
+          aria-busy="true"
+          aria-live="polite"
+        >
+          <CircularProgress sx={{ color: "#FF7A00" }} size={20} />
         </div>
       ) : fetchError ? (
         <div className="bg-red-50 border-l-4 border-red-500 p-4">
           <div className="flex">
             <div className="flex-shrink-0">
-              <svg className="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+              <svg
+                className="h-5 w-5 text-red-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
                 <path
                   fillRule="evenodd"
                   d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
@@ -223,7 +240,9 @@ export default function Customers() {
                     </TableCell>
                     <TableCell>{formatDate(customer.signupDate)}</TableCell>
                     <TableCell>{customer.totalOrders ?? 0}</TableCell>
-                    <TableCell>{currency.format(toNumber(customer.totalSpent))}</TableCell>
+                    <TableCell>
+                      {currency.format(toNumber(customer.totalSpent))}
+                    </TableCell>
                     <TableCell>{renderStatusChip(customer.status)}</TableCell>
                   </TableRow>
                 ))}
@@ -231,7 +250,9 @@ export default function Customers() {
                 {filteredCustomers.length === 0 && (
                   <TableRow>
                     <TableCell colSpan={6} align="center">
-                      <span className="text-gray-500">No matching customers found</span>
+                      <span className="text-gray-500">
+                        No matching customers found
+                      </span>
                     </TableCell>
                   </TableRow>
                 )}
@@ -257,15 +278,23 @@ export default function Customers() {
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         sx={{
-          "& .MuiDrawer-paper": { width: 380, padding: 2, background: "#fafafa" },
+          "& .MuiDrawer-paper": {
+            width: 380,
+            padding: 2,
+            background: "#fafafa",
+          },
         }}
       >
         {selectedCustomer && (
           <Box>
             {/* Header */}
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-primary text-lg font-light">Customer Details</h3>
-              <span className="text-xs text-gray-500 font-medium">{selectedCustomer.id}</span>
+              <h3 className="text-primary text-lg font-light">
+                Customer Details
+              </h3>
+              <span className="text-xs text-gray-500 font-medium">
+                {selectedCustomer.id}
+              </span>
             </div>
 
             <div className="flex items-center gap-4 mb-4">
@@ -279,7 +308,9 @@ export default function Customers() {
                 <h3 className="text-base font-semibold text-gray-800">
                   {selectedCustomer.name}
                 </h3>
-                <div className="mt-1">{renderStatusChip(selectedCustomer.status)}</div>
+                <div className="mt-1">
+                  {renderStatusChip(selectedCustomer.status)}
+                </div>
               </div>
             </div>
 
@@ -301,7 +332,11 @@ export default function Customers() {
               </p>
               <p className="flex items-start gap-2">
                 <MdLocationOn className="text-gray-500 text-lg" />
-                {[selectedCustomer.address, selectedCustomer.city, selectedCustomer.country]
+                {[
+                  selectedCustomer.address,
+                  selectedCustomer.city,
+                  selectedCustomer.country,
+                ]
                   .filter(Boolean)
                   .join(", ") || "—"}
               </p>
@@ -321,7 +356,9 @@ export default function Customers() {
               </div>
               <div className="flex justify-between">
                 <span>Total Spent:</span>
-                <span>{currency.format(toNumber(selectedCustomer.totalSpent))}</span>
+                <span>
+                  {currency.format(toNumber(selectedCustomer.totalSpent))}
+                </span>
               </div>
             </div>
 
@@ -329,7 +366,9 @@ export default function Customers() {
 
             {/* Recent Orders */}
             <div>
-              <h4 className="text-sm font-medium text-gray-800 mb-2">Recent Order Items</h4>
+              <h4 className="text-sm font-medium text-gray-800 mb-2">
+                Recent Order Items
+              </h4>
               <ul className="space-y-1">
                 {(selectedCustomer.recentOrders || []).map((item, idx) => (
                   <li
@@ -349,7 +388,10 @@ export default function Customers() {
               </ul>
             </div>
 
-            <button onClick={() => setDrawerOpen(false)} className="btn-primary mt-6 text-sm">
+            <button
+              onClick={() => setDrawerOpen(false)}
+              className="btn-primary mt-6 text-sm"
+            >
               Close
             </button>
           </Box>

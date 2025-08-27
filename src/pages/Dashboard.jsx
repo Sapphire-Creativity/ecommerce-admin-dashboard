@@ -90,9 +90,9 @@ const Dashboard = () => {
         <Box
           sx={{
             width: { xs: "100%", md: "75%" },
-            p: 3,
+            p: 1,
             bgcolor: "background.paper",
-            boxShadow: theme.shadows[1],
+            // boxShadow: theme.shadows[1],
             mr: { md: 3 },
           }}
         >
@@ -102,13 +102,13 @@ const Dashboard = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h3 className="text-primary font-normal text-4xl my-1">
+              <h3 className="text-primary font-normal text-2xl md:text-4xl my-1">
                 Hello Admin! 👋
               </h3>
 
-              <Typography variant="subtitle1" color="text.secondary">
+              <p className="text-[.7rem] md:text-sm">
                 Here's what's happening with your store today
-              </Typography>
+              </p>
             </motion.div>
           </Box>
 
@@ -124,9 +124,8 @@ const Dashboard = () => {
               boxShadow: theme.shadows[1],
             }}
           >
-            <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
-              Recent Activity
-            </Typography>
+            <h4 className="">Recent Activity</h4>
+
             <Box
               sx={{
                 height: 300,
@@ -136,9 +135,7 @@ const Dashboard = () => {
                 bgcolor: "background.default",
                 borderRadius: 2,
               }}
-            >
-             
-            </Box>
+            ></Box>
           </Box>
         </Box>
 
@@ -167,17 +164,17 @@ const Dashboard = () => {
               position: "fixed",
               bottom: 24,
               right: 24,
-              bgcolor: "primary.main",
+              bgcolor: "#ff7a00",
               color: "white",
-              width: 56,
-              height: 56,
+              width: 40,
+              height: 40,
               boxShadow: theme.shadows[4],
               "&:hover": {
-                bgcolor: "primary.dark",
+                bgcolor: "#e65e00",
               },
             }}
           >
-            <MenuIcon />
+            <MenuIcon className="w-20" />
           </IconButton>
         </motion.div>
       )}

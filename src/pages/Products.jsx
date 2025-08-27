@@ -77,11 +77,13 @@ const Products = () => {
       {/* Fixed Header */}
       <div className="sticky top-0 z-10 bg-white pb-2">
         <div className="flex justify-between items-center">
-          <h3 className="text-primary font-normal text-4xl my-8">Products</h3>
+          <h3 className="text-primary font-normal text-2xl md:text-4xl my-8">
+            Products
+          </h3>
 
           <IoAdd
             onClick={() => setDrawerOpen(true)}
-            className="h-10 w-10 text-xl p-2 text-primary bg-gray-100 rounded-lg 
+            className="h-8 w-8 text-sm p-1 text-primary bg-gray-100 rounded-lg 
              transition-all duration-300 ease-in-out cursor-pointer
              hover:bg-primary hover:text-white hover:shadow-lg hover:scale-110"
           />
@@ -92,7 +94,7 @@ const Products = () => {
       <div className="flex-1 overflow-auto pb-4">
         {loading ? (
           <div className="flex justify-center items-center h-full">
-            <CircularProgress sx={{ color: "#FF7A00" }} size={60} />
+            <CircularProgress sx={{ color: "#FF7A00" }} size={20} />
           </div>
         ) : fetchError ? (
           <div className="bg-red-50 border-l-4 border-red-500 p-4">

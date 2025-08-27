@@ -18,16 +18,15 @@ export default function Products({ items, handleEdit }) {
     setProducts(items);
   }, [items]);
 
-
-//   try {
-//     await dispatch(addNewOrder(payload)).unwrap();
-//     toast.success("Order created successfully!");
-//     onClose();
-//   } catch (err) {
-//     console.error(err);
-//     toast.error("Failed to create order");
-//   }
-// };
+  //   try {
+  //     await dispatch(addNewOrder(payload)).unwrap();
+  //     toast.success("Order created successfully!");
+  //     onClose();
+  //   } catch (err) {
+  //     console.error(err);
+  //     toast.error("Failed to create order");
+  //   }
+  // };
 
   // Open custom modal
   const confirmDelete = (id) => {
@@ -67,17 +66,25 @@ export default function Products({ items, handleEdit }) {
       />
 
       <div className="overflow-x-auto bg-white rounded-lg shadow-xl">
-        <table className="min-w-full text-sm text-left border border-gray-100">
-          <thead className="uppercase text-xs bg-gray-50">
+        <table className="min-w-full text-xs sm:text-sm text-left border border-gray-100">
+          <thead className="uppercase text-[10px] sm:text-xs bg-gray-50">
             <tr>
-              <th className="px-4 py-5 border-b text-primary-dark">Image</th>
-              <th className="px-4 py-5 border-b text-primary-dark">Name</th>
-              <th className="px-4 py-5 border-b text-primary-dark">Category</th>
-              <th className="px-4 py-5 border-b text-primary-dark">
+              <th className="px-2 sm:px-4 py-3 sm:py-5 border-b text-primary-dark">
+                Image
+              </th>
+              <th className="px-2 sm:px-4 py-3 sm:py-5 border-b text-primary-dark">
+                Name
+              </th>
+              <th className="px-2 sm:px-4 py-3 sm:py-5 border-b text-primary-dark">
+                Category
+              </th>
+              <th className="px-2 sm:px-4 py-3 sm:py-5 border-b text-primary-dark">
                 Price ($)
               </th>
-              <th className="px-4 py-5 border-b text-primary-dark">Stock</th>
-              <th className="px-4 py-5 border-b text-primary-dark text-center">
+              <th className="px-2 sm:px-4 py-3 sm:py-5 border-b text-primary-dark">
+                Stock
+              </th>
+              <th className="px-2 sm:px-4 py-3 sm:py-5 border-b text-primary-dark text-center">
                 Actions
               </th>
             </tr>
@@ -88,33 +95,37 @@ export default function Products({ items, handleEdit }) {
                 key={product.id}
                 className="hover:bg-gray-50 transition duration-200"
               >
-                <td className="px-4 py-3 border-b">
+                <td className="px-2 sm:px-4 py-2 sm:py-3 border-b">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-10 h-10 object-cover rounded"
+                    className="w-8 h-8 sm:w-10 sm:h-10 object-cover rounded"
                   />
                 </td>
-                <td className="px-4 py-3 border-b font-medium text-gray-800">
+                <td className="px-2 sm:px-4 py-2 sm:py-3 border-b font-medium text-gray-800">
                   {product.name}
                 </td>
-                <td className="px-4 py-3 border-b">{product.category}</td>
-                <td className="px-4 py-3 border-b">
+                <td className="px-2 sm:px-4 py-2 sm:py-3 border-b">
+                  {product.category}
+                </td>
+                <td className="px-2 sm:px-4 py-2 sm:py-3 border-b">
                   {Number(product.price)?.toFixed(2) || "0.00"}
                 </td>
-                <td className="px-4 py-3 border-b">{product.stock}</td>
-                <td className="px-4 py-3 border-b text-center space-x-2">
+                <td className="px-2 sm:px-4 py-2 sm:py-3 border-b">
+                  {product.stock}
+                </td>
+                <td className="px-2 sm:px-4 py-2 sm:py-3 border-b text-center space-x-1 sm:space-x-2">
                   <button
                     onClick={() => handleEdit(product)}
-                    className="p-2 text-gray-600 hover:bg-blue-100 rounded transition duration-200"
+                    className="p-1 sm:p-2 text-gray-600 hover:bg-blue-100 rounded transition duration-200"
                   >
-                    <MdModeEdit size={18} />
+                    <MdModeEdit size={16} className="sm:w-5 sm:h-5" />
                   </button>
                   <button
                     onClick={() => confirmDelete(product.id)}
-                    className="p-2 text-red-500 hover:bg-red-100 rounded transition duration-200"
+                    className="p-1 sm:p-2 text-red-500 hover:bg-red-100 rounded transition duration-200"
                   >
-                    <MdDelete size={18} />
+                    <MdDelete size={16} className="sm:w-5 sm:h-5" />
                   </button>
                 </td>
               </tr>
@@ -123,15 +134,15 @@ export default function Products({ items, handleEdit }) {
         </table>
 
         {/* Pagination */}
-        <div className="flex items-center justify-between p-4 border-t">
-          <span className="text-sm text-gray-600">
+        <div className="flex flex-col sm:flex-row items-center justify-between p-3 sm:p-4 border-t space-y-2 sm:space-y-0">
+          <span className="text-xs sm:text-sm text-gray-600">
             Page {currentPage} of {totalPages}
           </span>
-          <div className="flex space-x-2">
+          <div className="flex space-x-1 sm:space-x-2">
             <button
               onClick={() => goToPage(currentPage - 1)}
               disabled={currentPage === 1}
-              className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+              className="px-2 sm:px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
             >
               <GrFormPrevious />
             </button>
@@ -139,7 +150,7 @@ export default function Products({ items, handleEdit }) {
               <button
                 key={index + 1}
                 onClick={() => goToPage(index + 1)}
-                className={`px-3 py-1 rounded ${
+                className={`px-2 sm:px-3 py-1 rounded ${
                   currentPage === index + 1
                     ? "bg-primary text-white"
                     : "bg-gray-100 hover:bg-gray-300"
@@ -151,7 +162,7 @@ export default function Products({ items, handleEdit }) {
             <button
               onClick={() => goToPage(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+              className="px-2 sm:px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
             >
               <GrFormNext />
             </button>

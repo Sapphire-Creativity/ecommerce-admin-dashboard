@@ -140,11 +140,13 @@ export default function Orders() {
       {/*  */}
       <div className="sticky top-0 z-10 bg-white pb-2">
         <div className="flex justify-between items-center">
-          <h3 className="text-primary font-normal text-4xl my-8">Orders</h3>
+          <h3 className="text-primary font-normal text-2xl md:text-4xl my-8">
+            Orders
+          </h3>
 
           <IoAdd
             onClick={handleAddDrawerOpen}
-            className="h-10 w-10 text-xl p-2 text-primary bg-gray-100 rounded-lg 
+            className="h-8 w-8 text-sm p-1 text-primary bg-gray-100 rounded-lg 
                      transition-all duration-300 ease-in-out cursor-pointer
                      hover:bg-primary hover:text-white hover:shadow-lg hover:scale-110"
           />

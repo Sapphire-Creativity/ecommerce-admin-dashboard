@@ -15,7 +15,7 @@ const StatsCards = () => {
       value: "1,245",
       change: "+12% from last month",
       icon: <FiShoppingCart size={24} />,
-      bgColor: "#ffa047",
+      bgColor: "#ff7a00",
       textColor: "white",
     },
     {
@@ -198,9 +198,9 @@ const StatsCards = () => {
               <button
                 key={index}
                 onClick={() => scrollToIndex(index)}
-                className={`h-2 w-2 rounded-full transition-all duration-300 ${
+                className={`h-1 w-2 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? "bg-gray-800 scale-125"
+                    ? "bg-[#ff7a00] scale-125"
                     : "bg-gray-300"
                 }`}
                 aria-label={`Go to card ${index + 1}`}
