@@ -1,13 +1,26 @@
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
 import { Outlet } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function DashboardLayout() {
   const [isActive, setIsActive] = useState(true);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768); // md breakpoint
+    };
+
+    handleResize(); // check on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const toggleSideBar = () => {
-    setIsActive(!isActive);
+    if (!isSmallScreen) {
+      setIsActive(!isActive);
+    }
   };
 
   return (
@@ -15,10 +28,10 @@ export default function DashboardLayout() {
       {/* Sidebar */}
       <div
         className={`h-full bg-white shadow transition-all duration-300 ${
-          isActive ? "w-64" : "w-20"
+          isSmallScreen ? "w-20" : isActive ? "w-64" : "w-20"
         } flex-shrink-0`}
       >
-        <Sidebar isCollapsed={!isActive} />
+        <Sidebar isCollapsed={isSmallScreen || !isActive} />
       </div>
 
       {/* Main Content Area */}

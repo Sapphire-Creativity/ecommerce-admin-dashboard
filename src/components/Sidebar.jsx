@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   FiHome,
   FiBox,
@@ -8,8 +8,24 @@ import {
   FiLogOut,
 } from "react-icons/fi";
 import { HiMiniSquares2X2 } from "react-icons/hi2";
+import { useDispatch, useSelector } from "react-redux";
+import { signOutThunk } from "../redux/slice/authSlice";
+import { toast } from "react-toastify";
 
 const Sidebar = ({ isCollapsed }) => {
+  const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handlesignOut = async () => {
+    try {
+      await dispatch(signOutThunk()).unwrap();
+      toast.success("Signed out successfully");
+      navigate("/auth-page");
+    } catch (err) {
+      toast.error(err || "Failed to log out");
+    }
+  };
   const navItems = [
     { path: "/", label: "Dashboard", icon: FiHome },
     { path: "/products", label: "Products", icon: FiBox },
@@ -81,10 +97,10 @@ const Sidebar = ({ isCollapsed }) => {
           />
           {!isCollapsed && (
             <div>
-              <h4 className="text-sm font-semibold">John Doe</h4>
-              <p className="text-xs text-gray-500">
-                sapphirecreativity@gmail.com
-              </p>
+              <h4 className="text-sm font-semibold">{user.displayName}</h4>
+
+              <p className="text-xs text-gray-500">{user.uid}</p>
+              <p className="text-xs text-gray-500"> {user.email}</p>
               <p className="text-xs text-gray-500">Admin</p>
             </div>
           )}
@@ -92,6 +108,7 @@ const Sidebar = ({ isCollapsed }) => {
 
         {/* Logout Button */}
         <button
+          onClick={handlesignOut}
           className={`flex items-center text-red-500 ${
             isCollapsed ? "justify-center" : "gap-2"
           } p-2 rounded-lg hover:bg-red-100 transition`}

@@ -138,9 +138,9 @@ const Products = () => {
         }}
       >
         <Box component="form" onSubmit={handleSubmit} className="space-y-4">
-          <h6 className="text-primary text-xl font-semibold mb-4">
+          <h3 className="text-primary text-xl md:text-2xl font-lighter mb-6">
             Add New Product
-          </h6>
+          </h3>
 
           {[
             { label: "Product Name", name: "name", type: "text" },
@@ -197,14 +197,14 @@ const Products = () => {
           <div className="flex gap-3 pt-2">
             <button
               type="submit"
-              className="flex-1 px-4 py-2.5 bg-primary text-white rounded-lg hover:bg-primary-dark shadow transition font-medium"
+              className="text-[.7rem] md:text-sm flex-1 px-4 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark shadow transition font-medium"
             >
               Save Product
             </button>
             <button
               type="button"
               onClick={() => setDrawerOpen(false)}
-              className="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-medium"
+              className="text-[.7rem] md:text-sm flex-1 px-4 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-medium"
             >
               Cancel
             </button>

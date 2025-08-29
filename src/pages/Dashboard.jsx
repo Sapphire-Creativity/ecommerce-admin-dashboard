@@ -12,11 +12,13 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import StatsCards from "../components/StatsCards";
 import { motion } from "framer-motion";
 import EcommerceGuages from "../components/EcommerceGauges";
+import { useSelector } from "react-redux";
 const Dashboard = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
+  const user = useSelector((state) => state.auth.user);
   const toggleDrawer = (open) => () => {
     setDrawerOpen(open);
   };
@@ -103,7 +105,7 @@ const Dashboard = () => {
               transition={{ duration: 0.5 }}
             >
               <h3 className="text-primary font-normal text-2xl md:text-4xl my-1">
-                Hello Admin! 👋
+                Welcome, {user.displayName || "Admin"} ! 👋
               </h3>
 
               <p className="text-[.7rem] md:text-sm">

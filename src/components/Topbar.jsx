@@ -10,7 +10,7 @@ const Topbar = ({ toggleSideBar, isActive }) => {
       <div className="flex items-center space-x-2 md:space-x-4">
         <button
           onClick={toggleSideBar}
-          className="p-1 rounded-md hover:bg-gray-100 transition-colors"
+          className="hidden md:block p-1 rounded-md hover:bg-gray-100 transition-colors"
           aria-label="Toggle sidebar"
         >
           <IoMenu className="text-2xl text-gray-600" />
