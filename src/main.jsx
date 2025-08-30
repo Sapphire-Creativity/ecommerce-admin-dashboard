@@ -13,6 +13,7 @@ import {
   browserSessionPersistence,
 } from "firebase/auth";
 import { auth } from "./firebase.js";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function Root() {
   const [authReady, setAuthReady] = useState(false);
@@ -41,7 +42,11 @@ function Root() {
   }, []);
   if (!authReady)
     return (
-      <div className="min-h-screen grid place-items-center">Loading...</div>
+      <div className="min-h-screen w-full flex flex-col items-center justify-center gap-2">
+        <CircularProgress sx={{ color: "#FF7A00" }} size={30} />
+        <p className="text-primary text-sm md:text-base text-center">  Loading...</p>
+      
+      </div>
     );
 
   return (

@@ -13,6 +13,10 @@ import StatsCards from "../components/StatsCards";
 import { motion } from "framer-motion";
 import EcommerceGuages from "../components/EcommerceGauges";
 import { useSelector } from "react-redux";
+import SalesRangeFilter from "../components/SalesRangeFilter";
+import LineChart from "../components/LineChart";
+import RecentOrders from "../components/RecentOrders";
+
 const Dashboard = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const theme = useTheme();
@@ -24,78 +28,36 @@ const Dashboard = () => {
   };
 
   const drawerContent = (
-    <Box
-      sx={{
-        width: "100%",
-        height: "100%",
-        p: 3,
-        bgcolor: "background.paper",
-        boxShadow: theme.shadows[1],
-      }}
-    >
-      <Typography
-        variant="h6"
-        sx={{ mb: 3, display: "flex", alignItems: "center" }}
-      >
-        <CalendarTodayIcon fontSize="small" sx={{ mr: 1 }} />
-        Calendar & Widgets
-      </Typography>
+    <div className="w-full h-full p-1 flex flex-col gap-2 overflow-y-scroll scrollbar-hide">
+      <SalesRangeFilter />
 
-      <Box
-        sx={{
-          bgcolor: "background.default",
+      {/* Recent Orders */}
 
-          borderRadius: 2,
-          mb: 3,
-          boxShadow: theme.shadows[1],
-        }}
-      >
-        <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>
-          📅 Calendar
-        </Typography>
-      </Box>
-
-      <Box
-        sx={{
-          bgcolor: "background.default",
-          p: 2,
-          borderRadius: 2,
-          boxShadow: theme.shadows[1],
-        }}
-      >
-        <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>
-          📊 Analytics
-        </Typography>
-      </Box>
-    </Box>
+      <RecentOrders />
+    </div>
   );
 
   return (
-    <Box
-      sx={{
-        width: "100%",
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        bgcolor: "background.default",
-      }}
-    >
+    <div className="w-full h-full flex flex-col overflow-hidden">
       {/* Main Content Area */}
       <Box
         sx={{
           display: "flex",
           flexGrow: 1,
           width: "100%",
+          overflow: "hidden",
         }}
       >
         {/* Main Content - 75% width on desktop, full width on mobile */}
         <Box
+          className="scrollbar-hide"
           sx={{
             width: { xs: "100%", md: "75%" },
             p: 1,
             bgcolor: "background.paper",
             // boxShadow: theme.shadows[1],
             mr: { md: 3 },
+            overflowY: "auto",
           }}
         >
           <Box sx={{ mb: 4 }}>
@@ -104,11 +66,11 @@ const Dashboard = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h3 className="text-primary font-normal text-2xl md:text-4xl my-1">
-                Welcome, {user.displayName || "Admin"} ! 👋
+              <h3 className="text-primary font-normal text-xl md:text-4xl my-1">
+                Welcome, Admin ! 👋
               </h3>
 
-              <p className="text-[.7rem] md:text-sm">
+              <p className="text-[0.65rem] md:text-sm">
                 Here's what's happening with your store today
               </p>
             </motion.div>
@@ -118,27 +80,9 @@ const Dashboard = () => {
             <StatsCards />
           </Box>
 
-          <Box
-            sx={{
-              bgcolor: "background.paper",
-              p: 3,
-              borderRadius: 2,
-              boxShadow: theme.shadows[1],
-            }}
-          >
-            <h4 className="">Recent Activity</h4>
+          {/* Line Chart */}
 
-            <Box
-              sx={{
-                height: 300,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                bgcolor: "background.default",
-                borderRadius: 2,
-              }}
-            ></Box>
-          </Box>
+          <LineChart />
         </Box>
 
         {/* Sidebar - 25% width on desktop, hidden on mobile */}
@@ -146,7 +90,7 @@ const Dashboard = () => {
           <Box
             sx={{
               width: "25%",
-              p: 3,
+              p: 2,
               bgcolor: "background.paper",
               boxShadow: theme.shadows[1],
               display: { xs: "none", md: "block" },
@@ -159,7 +103,7 @@ const Dashboard = () => {
 
       {/* Mobile Menu Button */}
       {isMobile && (
-        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+        <motion.div>
           <IconButton
             onClick={toggleDrawer(true)}
             sx={{
@@ -176,7 +120,7 @@ const Dashboard = () => {
               },
             }}
           >
-            <MenuIcon className="w-20" />
+            <MenuIcon className="w-8" />
           </IconButton>
         </motion.div>
       )}
@@ -195,7 +139,7 @@ const Dashboard = () => {
       >
         {drawerContent}
       </Drawer>
-    </Box>
+    </div>
   );
 };
 

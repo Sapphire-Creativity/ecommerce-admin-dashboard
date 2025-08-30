@@ -3,7 +3,7 @@ import { MdDelete, MdModeEdit } from "react-icons/md";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { useDispatch } from "react-redux";
 import { deleteProducts } from "../redux/slice/productSlice";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import ConfirmModal from "../components/ConfirmModal";
 
 export default function Products({ items, handleEdit }) {
@@ -57,7 +57,6 @@ export default function Products({ items, handleEdit }) {
 
   return (
     <div className="">
-      <ToastContainer position="top-right" autoClose={3000} />
       <ConfirmModal
         visible={modalVisible}
         onConfirm={handleDelete}

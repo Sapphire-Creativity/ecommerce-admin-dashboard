@@ -74,6 +74,7 @@ const Products = () => {
 
   return (
     <div className="h-full flex flex-col">
+
       {/* Fixed Header */}
       <div className="sticky top-0 z-10 bg-white pb-2">
         <div className="flex justify-between items-center">
@@ -114,7 +115,7 @@ const Products = () => {
               </div>
               <div className="ml-3">
                 <p className="text-sm text-red-700">
-                  Error loading products: {fetchError}
+                  Error loading products: {fetchError}, please try again.
                 </p>
               </div>
             </div>

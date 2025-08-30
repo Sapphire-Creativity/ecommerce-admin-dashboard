@@ -28,7 +28,7 @@ export default function DashboardLayout() {
       {/* Sidebar */}
       <div
         className={`h-full bg-white shadow transition-all duration-300 ${
-          isSmallScreen ? "w-20" : isActive ? "w-64" : "w-20"
+          isSmallScreen ? "w-20" : isActive ? "w-40" : "w-20"
         } flex-shrink-0`}
       >
         <Sidebar isCollapsed={isSmallScreen || !isActive} />

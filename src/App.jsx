@@ -25,8 +25,8 @@ const App = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        toastClassName="bg-white font-medium rounded-lg shadow-md"
-        bodyClassName="text-gray-800"
+        // toastClassName="bg-white font-medium rounded-lg shadow-md"
+        // bodyClassName="text-gray-800"
       />
 
       <Routes>

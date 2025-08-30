@@ -63,9 +63,9 @@ const Topbar = ({ toggleSideBar, isActive }) => {
             alt="User Avatar"
             className="w-8 h-8 md:w-9 md:h-9 rounded-full border-2 border-primary object-cover"
           />
-          <span className="hidden lg:inline text-sm font-medium text-gray-700">
+          {/* <span className="hidden lg:inline text-sm font-medium text-gray-700">
             John Doe
-          </span>
+          </span> */}
         </div>
       </div>
     </header>
