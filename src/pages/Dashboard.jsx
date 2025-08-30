@@ -67,7 +67,7 @@ const Dashboard = () => {
               transition={{ duration: 0.5 }}
             >
               <h3 className="text-primary font-normal text-xl md:text-4xl my-1">
-                Welcome, Admin ! 👋
+                Welcome, {user.displayName || "Admin"} ! 👋
               </h3>
 
               <p className="text-[0.65rem] md:text-sm">
