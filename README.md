@@ -59,7 +59,7 @@
 ## 📸 Screenshots
 > 
 <p align="center">
-  <img src="./assets/dashboard-image.png" alt="Dashboard Screenshot" width="80%"/>
+  <img src="../src/assets/dashboard-image.png" alt="Dashboard Screenshot" width="80%"/>
 </p>
 
 ---
@@ -71,10 +71,10 @@ I hosted on Render for persistence.
 
 Provides RESTful endpoints like:
 
-GET    /products
-POST   /products
-PUT    /products/:id
-DELETE /products/:id
+  - GET    /products
+  - POST   /products
+  - PUT    /products/:id
+  - DELETE /products/:id
 
 LIVE URL
 https://ecommerce-admin-dashboard-u0nq.onrender.com
@@ -94,7 +94,17 @@ Feel free to fork this repo and submit a pull request.
 
 ## 📜 NOTE
 
-This project is reflects intentionality, not just showing "I can code" but actually building meaningful project that is useful to both SMEs, employees. More features like google authetication, dowloadable customer's data, and continous iteration to this project. This project also enhances my skills in CRUD operations, handling data fetching, clean code. 
+This project was built with intentionality: not just to show coding skills, but to demonstrate the ability to create a real-world, scalable application.
+
+Planned improvements:
+  - Google Authentication
+  - Exportable/downloadable customer data
+  - Continuous feature iteration
+
+Through this project, I enhanced my skills in:
+  - CRUD operations
+  - Data fetching and handling
+  -  Writing clean, maintainable code
 
 ## 👨‍💻 Author
 
