@@ -46,12 +46,15 @@
 ## 🛠️ Tech Stack
 
 <p align="left">
-  <img src="https://img.shields.io/badge/React-20232a?style=for-the-badge&logo=react&logoColor=61DAFB"/>
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"/>
-  <img src="https://img.shields.io/badge/TailwindCSS-38bdf8?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Redux-764abc?style=for-the-badge&logo=redux&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black"/>
-  <img src="https://img.shields.io/badge/Framer%20Motion-ea4c89?style=for-the-badge&logo=framer&logoColor=white"/>
+## 🛠️ Tech Stack
+
+![React](https://img.shields.io/badge/React-20232a?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38bdf8?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Redux](https://img.shields.io/badge/Redux-764abc?style=for-the-badge&logo=redux&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black)
+![Framer Motion](https://img.shields.io/badge/Framer%20Motion-ea4c89?style=for-the-badge&logo=framer&logoColor=white)
+
 </p>
 
 ---
@@ -59,7 +62,7 @@
 ## 📸 Screenshots
 > 
 <p align="center">
-  <img src="../src/assets/dashboard-image.png" alt="Dashboard Screenshot" width="80%"/>
+  <img src="./src/assets/dashboard-image.png" alt="Dashboard Screenshot" width="80%"/>
 </p>
 
 ---
