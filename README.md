@@ -1,74 +1,132 @@
-<!-- Banner -->
-<h1 align="center">🛒 E-Commerce Admin Dashboard</h1>
-<p align="center">
-  A modern, responsive, and interactive Admin Dashboard for managing your e-commerce business.<br/>
-  Built with <b>React, Vite, TailwindCSS, Redux, Firebase, and Framer Motion</b>.<br/>
-  Inspired by <a href="https://www.bumpa.com/" target="_blank">BUMPA</a>.
-</p>
+🛍️ Ecommerce Admin Dashboard
+A modern, responsive admin dashboard for ecommerce management, inspired by BUMPA
 
----
+https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Ecommerce+Admin+Dashboard
+https://img.shields.io/github/license/your-username/ecommerce-admin-dashboard?color=blue
+https://img.shields.io/github/last-commit/your-username/ecommerce-admin-dashboard
+https://img.shields.io/badge/deployed%2520on-vercel-black
 
-## 📑 Table of Contents
-- [✨ Features](#-features)
-- [🛠️ Tech Stack](#️-tech-stack)
-- [📸 Screenshots](#-screenshots)
-- [⚡ Getting Started](#-getting-started)
-- [🔐 Authentication](#-authentication)
-- [🌐 API with JSON-Server](#-api-with-json-server)
-- [🚀 Deployment](#-deployment)
-- [🤝 Contributing](#-contributing)
-- [📜 License](#-license)
-- [👨‍💻 Author](#-author)
+📋 Interactive Table of Contents
+<details> <summary>✨ Features (Click to expand)</summary>
+📊 Dashboard Homepage
 
----
+🛍️ Product Management
 
-## ✨ Features
+📦 Orders Management
 
-- **Dashboard Homepage**
-  - Line chart data visualization  
-  - Overview cards with real-time data  
+👥 Customers Management
 
-- **Products Page**
-  - Add, edit, and delete products  
+👤 Profile Management
 
-- **Orders Page**
-  - Add/edit orders  
-  - Select products from existing catalog  
+</details><details> <summary>🛠️ Tech Stack (Click to expand)</summary>
+Frontend Framework
 
-- **Customers Page**
-  - View customer information  
+Styling
 
-- **Profile Page**
-  - View and edit admin profile details  
+State Management
 
----
+Authentication
 
-## 🛠️ Tech Stack
+Animations
 
-<p align="left">
-  <img src="https://img.shields.io/badge/React-20232a?style=for-the-badge&logo=react&logoColor=61DAFB"/>
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"/>
-  <img src="https://img.shields.io/badge/TailwindCSS-38bdf8?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Redux-764abc?style=for-the-badge&logo=redux&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black"/>
-  <img src="https://img.shields.io/badge/Framer%20Motion-ea4c89?style=for-the-badge&logo=framer&logoColor=white"/>
-</p>
+Deployment
 
----
+Backend
 
-## 📸 Screenshots
-<p align="center">
-  
-  <img src="screenshot1.png" alt="Dashboard Screenshot" width="80%"/>
-</p>
+</details><details> <summary>🚀 Quick Start (Click to expand)</summary>
+Prerequisites
 
----
+Installation
 
-## ⚡ Getting Started
+Environment Setup
 
-Clone the repository:
+Running the App
 
-```bash
-git clone https://github.com/yourusername/ecommerce-admin-dashboard.git
-cd ecommerce-admin-dashboard
-npm install
+</details><details> <summary>🎨 UI/UX Features (Click to expand)</summary>
+Responsive Design
+
+Dark/Light Mode
+
+Animations
+
+Navigation
+
+Data Visualization
+
+</details>
+📦 Available Scripts •
+🔐 Authentication •
+📊 Data Management •
+🚀 Deployment •
+📱 Screenshots •
+🤝 Contributing •
+📄 License •
+🙏 Acknowledgments •
+📞 Support
+
+✨ Features
+📊 Dashboard Homepage
+Interactive data visualizations with line charts
+
+Performance metrics cards showing key business indicators
+
+Real-time sales analytics and revenue tracking
+
+Quick overview of store performance
+
+🛍️ Product Management
+Add new products with detailed information
+
+Edit existing product details and inventory
+
+Delete products from your catalog
+
+Product image management
+
+Category and pricing organization
+
+📦 Orders Management
+Create new orders manually
+
+Edit order status and details
+
+Select products from existing inventory
+
+Track order fulfillment process
+
+Customer order history
+
+👥 Customers Management
+View customer database with detailed profiles
+
+Customer purchase history and preferences
+
+Contact information management
+
+Customer segmentation capabilities
+
+👤 Profile Management
+View and edit admin profile details
+
+Account settings and preferences
+
+Security and authentication settings
+
+⬆ Back to Top
+
+🛠️ Tech Stack
+Frontend Framework: React with Vite
+
+Styling: Tailwind CSS
+
+State Management: Redux
+
+Authentication: Firebase Auth
+
+Animations: Framer Motion
+
+Deployment: Vercel
+
+Backend: JSON-Server hosted on Render
+
+⬆ Back to Top
