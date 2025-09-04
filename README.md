@@ -1,12 +1,12 @@
-🛍️ Ecommerce Admin Dashboard
-A modern, responsive admin dashboard for ecommerce management, inspired by BUMPA
+<h1>🛍️ Ecommerce Admin Dashboard</h1>
+<p>A modern, responsive admin dashboard for ecommerce management, inspired by BUMPA </p>
 
 https://via.placeholder.com/800x400/3B82F6/FFFFFF?text=Ecommerce+Admin+Dashboard
 https://img.shields.io/github/license/your-username/ecommerce-admin-dashboard?color=blue
 https://img.shields.io/github/last-commit/your-username/ecommerce-admin-dashboard
 https://img.shields.io/badge/deployed%2520on-vercel-black
 
-📋 Interactive Table of Contents
+##📋 Interactive Table of Contents
 <details> <summary>✨ Features (Click to expand)</summary>
 📊 Dashboard Homepage
 
@@ -21,15 +21,15 @@ https://img.shields.io/badge/deployed%2520on-vercel-black
 </details><details> <summary>🛠️ Tech Stack (Click to expand)</summary>
 Frontend Framework
 
-Styling
+  - Styling
 
-State Management
+  - State Management
 
-Authentication
+  - Authentication
 
-Animations
+  - Animations
 
-Deployment
+  - Deployment
 
 Backend
 
